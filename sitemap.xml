@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    
+    <!-- Main Page -->
+    <url>
+        <loc>https://starelectronics.az/</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Home Section -->
+    <url>
+        <loc>https://starelectronics.az/#home</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Cameras Section -->
+    <url>
+        <loc>https://starelectronics.az/#cameras</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Damafonlar Section -->
+    <url>
+        <loc>https://starelectronics.az/#damafonlar</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Proyektorlar Section -->
+    <url>
+        <loc>https://starelectronics.az/#projectors</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- TV Accessories Section -->
+    <url>
+        <loc>https://starelectronics.az/#tv-accessories</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- About Section -->
+    <url>
+        <loc>https://starelectronics.az/#about</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Contact Section -->
+    <url>
+        <loc>https://starelectronics.az/#contact</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+</urlset>
+
