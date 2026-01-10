@@ -1,0 +1,213 @@
+/* ========================================
+   Products Component
+   ======================================== */
+
+.products {
+    padding: 100px 0 40px;
+}
+
+.product-category {
+    padding: 60px 0;
+}
+
+.product-category.alt-bg {
+    background: var(--black-light);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.category-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gold-gradient);
+    border-radius: var(--radius-lg);
+    flex-shrink: 0;
+}
+
+.category-icon i {
+    font-size: 28px;
+    color: var(--black);
+}
+
+.category-title {
+    font-size: 28px;
+    margin-bottom: 4px;
+}
+
+.category-description {
+    color: var(--gray);
+    font-size: 15px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.products-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Product Card */
+.product-card {
+    background: var(--black-medium);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: var(--shadow-gold);
+}
+
+.product-image {
+    position: relative;
+    height: 200px;
+    background: linear-gradient(135deg, var(--black-soft) 0%, var(--black-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-base);
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.product-placeholder {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 50%;
+    transition: all var(--transition-base);
+}
+
+.product-placeholder i {
+    font-size: 32px;
+    color: var(--gold);
+}
+
+.product-card:hover .product-placeholder {
+    transform: scale(1.1);
+    background: rgba(212, 175, 55, 0.2);
+}
+
+.product-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 6px 14px;
+    background: var(--gold);
+    color: var(--black);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: var(--radius-full);
+}
+
+.product-badge.new {
+    background: #22c55e;
+    color: var(--white);
+}
+
+.product-badge.pro {
+    background: #3b82f6;
+    color: var(--white);
+}
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 10, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.product-content {
+    padding: 24px;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    transition: color var(--transition-fast);
+}
+
+.product-card:hover .product-name {
+    color: var(--gold);
+}
+
+.product-desc {
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.product-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 16px;
+    font-family: var(--font-display);
+}
+
+.product-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.product-features span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    color: var(--gold-light);
+}
+
+.product-features span i {
+    font-size: 10px;
+}
+

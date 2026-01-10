@@ -53,6 +53,17 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://starelectronics.az/">
     
+    <!-- Google Analytics (Replace G-XXXXXXXXXX with your tracking ID) -->
+    <!-- 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+    
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,7 +72,7 @@
     <!-- Critical CSS - Inline for fast loading -->
     <style>
 /* ======================================== CRITICAL CSS ======================================== */
-:root{--black:#0a0a0a;--black-light:#121212;--black-medium:#1a1a1a;--black-soft:#242424;--gold:#d4af37;--gold-light:#f4d47c;--gold-dark:#b8962e;--gold-gradient:linear-gradient(135deg,#d4af37 0%,#f4d47c 50%,#d4af37 100%);--white:#fff;--gray:#888;--gray-light:#ccc;--font-display:'Playfair Display',Georgia,serif;--font-body:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif;--radius-full:9999px;--transition-base:.3s ease}*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--white);background:var(--black);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.container{width:100%;max-width:1400px;margin:0 auto;padding:0 24px}h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:600;line-height:1.2}a{color:inherit;text-decoration:none;transition:color .2s ease}img{max-width:100%;height:auto;display:block}ul{list-style:none}.gold{background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all var(--transition-base)}.header::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,rgba(10,10,10,.95),rgba(10,10,10,0));pointer-events:none}.header.scrolled{padding:12px 0;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);box-shadow:0 2px 20px rgba(0,0,0,.5)}.nav{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}.logo{display:flex;align-items:center;gap:12px}.logo img{width:55px;height:55px;border-radius:50%;object-fit:cover;transition:transform var(--transition-base)}.nav-menu{display:flex;align-items:center;gap:8px}.nav-link{padding:10px 18px;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:1px;color:var(--gray-light);border-radius:var(--radius-full);transition:all var(--transition-base)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;font-family:var(--font-body);font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:1px;border:none;border-radius:var(--radius-full);cursor:pointer;transition:all var(--transition-base)}.btn-primary{background:var(--gold-gradient);color:var(--black);box-shadow:0 4px 20px rgba(212,175,55,.3)}.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:140px 0 80px;overflow:hidden}.hero-bg{position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1}.hero-gradient{position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 50%,rgba(212,175,55,.08) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(212,175,55,.05) 0%,transparent 40%)}.hero-content{position:relative;z-index:2}.hero-title{font-size:clamp(40px,6vw,72px);font-weight:700;line-height:1.1;margin-bottom:24px}.hero-description{font-size:18px;color:var(--gray-light);max-width:500px;margin-bottom:40px}.mobile-toggle{display:none;flex-direction:column;gap:6px;width:30px;height:24px;background:none;border:none;cursor:pointer;padding:0}.mobile-toggle span{display:block;width:100%;height:2px;background:var(--gold);border-radius:2px;transition:all var(--transition-base)}@media (max-width:992px){.nav-menu{position:fixed;top:0;right:-100%;width:300px;height:100vh;flex-direction:column;align-items:flex-start;padding:100px 40px 40px;background:var(--black-light);border-left:1px solid rgba(212,175,55,.2);transition:right var(--transition-base);z-index:999}.nav-menu.active{right:0}.mobile-toggle{display:flex}}@media (max-width:768px){.hero{padding:120px 0 60px}.hero .container{grid-template-columns:1fr;text-align:center}}
+:root{--black:#0a0a0a;--black-light:#121212;--black-medium:#1a1a1a;--black-soft:#242424;--gold:#d4af37;--gold-light:#f4d47c;--gold-dark:#b8962e;--gold-gradient:linear-gradient(135deg,#d4af37 0%,#f4d47c 50%,#d4af37 100%);--white:#fff;--gray:#888;--gray-light:#ccc;--font-display:'Playfair Display',Georgia,serif;--font-body:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif;--radius-full:9999px;--transition-base:.3s ease}*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--white);background:var(--black);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.container{width:100%;max-width:1400px;margin:0 auto;padding:0 24px}h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:600;line-height:1.2}a{color:inherit;text-decoration:none;transition:color .2s ease}img{max-width:100%;height:auto;display:block}ul{list-style:none}.gold{background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all var(--transition-base)}.header::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,rgba(10,10,10,.95),rgba(10,10,10,0));pointer-events:none}.header.scrolled{padding:12px 0;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);box-shadow:0 2px 20px rgba(0,0,0,.5)}.nav{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}.logo{display:flex;align-items:center;gap:12px}.logo img{width:70px;height:70px;border-radius:50%;object-fit:cover;transition:transform var(--transition-base)}.nav-menu{display:flex;align-items:center;gap:8px}.nav-link{padding:10px 18px;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:1px;color:var(--gray-light);border-radius:var(--radius-full);transition:all var(--transition-base)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;font-family:var(--font-body);font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:1px;border:none;border-radius:var(--radius-full);cursor:pointer;transition:all var(--transition-base)}.btn-primary{background:var(--gold-gradient);color:var(--black);box-shadow:0 4px 20px rgba(212,175,55,.3)}.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:140px 0 80px;overflow:hidden}.hero-bg{position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1}.hero-gradient{position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 50%,rgba(212,175,55,.08) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(212,175,55,.05) 0%,transparent 40%)}.hero-content{position:relative;z-index:2}.hero-title{font-size:clamp(40px,6vw,72px);font-weight:700;line-height:1.1;margin-bottom:24px}.hero-description{font-size:18px;color:var(--gray-light);max-width:500px;margin-bottom:40px}.mobile-toggle{display:none;flex-direction:column;gap:6px;width:30px;height:24px;background:none;border:none;cursor:pointer;padding:0}.mobile-toggle span{display:block;width:100%;height:2px;background:var(--gold);border-radius:2px;transition:all var(--transition-base)}@media (max-width:992px){.nav-menu{position:fixed;top:0;right:-100%;width:300px;height:100vh;flex-direction:column;align-items:flex-start;padding:100px 40px 40px;background:var(--black-light);border-left:1px solid rgba(212,175,55,.2);transition:right var(--transition-base);z-index:999}.nav-menu.active{right:0}.mobile-toggle{display:flex}}@media (max-width:768px){.hero{padding:120px 0 60px}.hero .container{grid-template-columns:1fr;text-align:center}}
     </style>
     
     <!-- Non-Critical CSS - Lazy loaded -->
@@ -178,29 +189,68 @@
         }
     }
     </script>
+    
+    <!-- Breadcrumb Schema for Home Page -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Ana Səhifə",
+                "item": "https://starelectronics.az/"
+            }
+        ]
+    }
+    </script>
 </head>
 <body itemscope itemtype="https://schema.org/ElectronicsStore">
+    <!-- Skip to Content Link (Accessibility) -->
+    <a href="#main-content" class="skip-to-content">Əsas məzmuna keç</a>
+    
     <!-- Header -->
     <header class="header" id="header" role="banner">
         <div class="container">
             <nav class="nav" role="navigation" aria-label="Əsas Naviqasiya">
                 <a href="#home" class="logo" aria-label="Star Electronics - Ana Səhifə">
-                    <img src="assets/images/logo.jpeg" alt="Star Electronics Logo - Premium Elektronika və Təhlükəsizlik Sistemləri Bakı" width="55" height="55" loading="eager">
+                    <img src="assets/images/logo.jpeg" alt="Star Electronics Logo - Premium Elektronika və Təhlükəsizlik Sistemləri Bakı" width="70" height="70" loading="eager">
                     <!-- <span class="logo-text">Electronics</span> -->
                 </a>
                 
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="#home" class="nav-link active">Ana Səhifə</a></li>
-                    <!-- <li><a href="#products" class="nav-link">Məhsullar</a></li> -->
-                    <li><a href="#cameras" class="nav-link">Kameralar</a></li>
-                    <li><a href="#damafonlar" class="nav-link">Damafonlar</a></li>
-                    <li><a href="#projectors" class="nav-link">Proyektorlar</a></li>
-                    <li><a href="#tv-accessories" class="nav-link">TV Aksesuarları</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">
+                            <span>Məhsullar</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="products/cameras/index.html"><i class="fas fa-video"></i> Kameralar</a></li>
+                            <li><a href="products/damafonlar/index.html"><i class="fas fa-bell"></i> Damafonlar</a></li>
+                            <li><a href="products/projectors/index.html"><i class="fas fa-video"></i> Proyektorlar</a></li>
+                            <li><a href="products/tv-boxes/index.html"><i class="fas fa-box"></i> TV Boxlar</a></li>
+                            <li><a href="products/tv-accessories/index.html"><i class="fas fa-tv"></i> TV Aksesuarları</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#about" class="nav-link">Haqqımızda</a></li>
                     <li><a href="#contact" class="nav-link">Əlaqə</a></li>
                 </ul>
                 
                 <div class="nav-actions">
+                    <div class="search-wrapper">
+                        <button class="search-toggle" id="search-toggle" aria-label="Axtarış">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="search-box" id="search-box">
+                            <input type="search" id="search-input" placeholder="Məhsul axtar..." aria-label="Məhsul axtarış">
+                            <button class="search-close" id="search-close" aria-label="Axtarışı bağla">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="search-results" id="search-results"></div>
+                        </div>
+                    </div>
                     <a href="#contact" class="btn btn-primary">
                         <span>Qiymət Al</span>
                         <i class="fas fa-arrow-right"></i>
@@ -216,7 +266,7 @@
     </header>
 
     <!-- Hero Section -->
-    <main role="main">
+    <main role="main" id="main-content">
     <section class="hero" id="home" aria-label="Ana Səhifə">
         <div class="hero-bg">
             <div class="hero-gradient"></div>
@@ -237,7 +287,7 @@
                     Keyfiyyət və peşəkarlıqla xidmətinizdəyik.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#products" class="btn btn-primary btn-lg">
+                    <a href="products/cameras/index.html" class="btn btn-primary btn-lg">
                         <i class="fas fa-shopping-bag"></i>
                         <span>Məhsullara Bax</span>
                     </a>
@@ -295,7 +345,7 @@
         <div class="container">
             <div class="badges-grid">
                 <div class="badge-item">
-                    <i class="fas fa-shield-check"></i>
+                    <i class="fas fa-shield-halved"></i>
                     <span>Orijinal Məhsul</span>
                 </div>
                 <div class="badge-item">
@@ -308,11 +358,11 @@
                 </div>
                 <div class="badge-item">
                     <i class="fas fa-headset"></i>
-                    <span>24/7 Dəstək</span>
+                    <span>Dəstək</span>
                 </div>
                 <div class="badge-item">
                     <i class="fas fa-store"></i>
-                    <span>Fiziki Mağaza</span>
+                    <span>Mağaza</span>
                 </div>
             </div>
         </div>
@@ -345,14 +395,14 @@
             </div>
             
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card" onclick="window.location.href='products/cameras/index.html'" style="cursor: pointer;">
                     <div class="product-image">
                         <div class="product-placeholder">
                             <i class="fas fa-wifi"></i>
                         </div>
                         <div class="product-badge">Populyar</div>
                         <div class="product-overlay">
-                            <button class="btn btn-sm">Ətraflı</button>
+                            <a href="products/cameras/index.html" class="btn btn-sm">Ətraflı</a>
                         </div>
                     </div>
                     <div class="product-content">
@@ -366,14 +416,14 @@
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" onclick="window.location.href='products/cameras/360.html'" style="cursor: pointer;">
                     <div class="product-image">
                         <div class="product-placeholder">
                             <i class="fas fa-rotate"></i>
                         </div>
                         <div class="product-badge new">Yeni</div>
                         <div class="product-overlay">
-                            <button class="btn btn-sm">Ətraflı</button>
+                            <a href="products/cameras/360.html" class="btn btn-sm">Ətraflı</a>
                         </div>
                     </div>
                     <div class="product-content">
@@ -387,14 +437,14 @@
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" onclick="window.location.href='products/cameras/dvr.html'" style="cursor: pointer;">
                     <div class="product-image">
                         <div class="product-placeholder">
                             <i class="fas fa-server"></i>
                         </div>
                         <div class="product-badge pro">Pro</div>
                         <div class="product-overlay">
-                            <button class="btn btn-sm">Ətraflı</button>
+                            <a href="products/cameras/dvr.html" class="btn btn-sm">Ətraflı</a>
                         </div>
                     </div>
                     <div class="product-content">
@@ -425,14 +475,14 @@
             </div>
             
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card" onclick="window.location.href='products/damafonlar/video.html'" style="cursor: pointer;">
                     <div class="product-image">
                         <div class="product-placeholder">
                             <i class="fas fa-bell"></i>
                         </div>
                         <div class="product-badge">Ən Çox Satılan</div>
                         <div class="product-overlay">
-                            <button class="btn btn-sm">Ətraflı</button>
+                            <a href="products/damafonlar/video.html" class="btn btn-sm">Ətraflı</a>
                         </div>
                     </div>
                     <div class="product-content">
@@ -446,13 +496,13 @@
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" onclick="window.location.href='products/damafonlar/menzil.html'" style="cursor: pointer;">
                     <div class="product-image">
                         <div class="product-placeholder">
                             <i class="fas fa-building"></i>
                         </div>
                         <div class="product-overlay">
-                            <button class="btn btn-sm">Ətraflı</button>
+                            <a href="products/damafonlar/menzil.html" class="btn btn-sm">Ətraflı</a>
                         </div>
                     </div>
                     <div class="product-content">
@@ -466,14 +516,14 @@
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" onclick="window.location.href='products/damafonlar/agilli.html'" style="cursor: pointer;">
                     <div class="product-image">
                         <div class="product-placeholder">
                             <i class="fas fa-mobile-screen"></i>
                         </div>
                         <div class="product-badge new">Yeni</div>
                         <div class="product-overlay">
-                            <button class="btn btn-sm">Ətraflı</button>
+                            <a href="products/damafonlar/agilli.html" class="btn btn-sm">Ətraflı</a>
                         </div>
                     </div>
                     <div class="product-content">
@@ -504,14 +554,14 @@
             </div>
             
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card" onclick="window.location.href='products/projectors/ev.html'" style="cursor: pointer;">
                     <div class="product-image">
                         <div class="product-placeholder">
                             <i class="fas fa-film"></i>
                         </div>
                         <div class="product-badge">Populyar</div>
                         <div class="product-overlay">
-                            <button class="btn btn-sm">Ətraflı</button>
+                            <a href="products/projectors/ev.html" class="btn btn-sm">Ətraflı</a>
                         </div>
                     </div>
                     <div class="product-content">
@@ -525,13 +575,13 @@
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" onclick="window.location.href='products/projectors/ofis.html'" style="cursor: pointer;">
                     <div class="product-image">
                         <div class="product-placeholder">
                             <i class="fas fa-briefcase"></i>
                         </div>
                         <div class="product-overlay">
-                            <button class="btn btn-sm">Ətraflı</button>
+                            <a href="products/projectors/ofis.html" class="btn btn-sm">Ətraflı</a>
                         </div>
                     </div>
                     <div class="product-content">
@@ -545,14 +595,14 @@
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" onclick="window.location.href='products/projectors/mini.html'" style="cursor: pointer;">
                     <div class="product-image">
                         <div class="product-placeholder">
                             <i class="fas fa-cube"></i>
                         </div>
                         <div class="product-badge new">Yeni</div>
                         <div class="product-overlay">
-                            <button class="btn btn-sm">Ətraflı</button>
+                            <a href="products/projectors/mini.html" class="btn btn-sm">Ətraflı</a>
                         </div>
                     </div>
                     <div class="product-content">
@@ -569,47 +619,107 @@
         </div>
     </section>
 
-    <!-- TV Products -->
-    <section class="product-category alt-bg" id="tv-accessories">
+    <!-- TV Boxlar -->
+    <section class="product-category alt-bg" id="tv-boxes">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-box"></i>
+                </div>
+                <div class="category-info">
+                    <h3 class="category-title">TV Boxlar</h3>
+                    <p class="category-description">Android TV qutuları və smart cihazlar</p>
+                </div>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card" onclick="window.location.href='products/tv-boxes/android.html'" style="cursor: pointer;">
+                    <div class="product-image">
+                        <div class="product-placeholder">
+                            <i class="fab fa-android"></i>
+                        </div>
+                        <div class="product-badge">Populyar</div>
+                        <div class="product-overlay">
+                            <a href="products/tv-boxes/android.html" class="btn btn-sm">Ətraflı</a>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h4 class="product-name">Android TV Boxlar</h4>
+                        <p class="product-desc">Android OS ilə smart funksiyalar. Minlərlə kanal və tətbiq.</p>
+                        <div class="product-features">
+                            <span><i class="fas fa-check"></i> Android 11-13</span>
+                            <span><i class="fas fa-check"></i> 4K Dəstəyi</span>
+                            <span><i class="fas fa-check"></i> WiFi + Ethernet</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" onclick="window.location.href='products/tv-boxes/4k.html'" style="cursor: pointer;">
+                    <div class="product-image">
+                        <div class="product-placeholder">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <div class="product-badge new">Yeni</div>
+                        <div class="product-overlay">
+                            <a href="products/tv-boxes/4k.html" class="btn btn-sm">Ətraflı</a>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h4 class="product-name">4K Ultra HD TV Boxlar</h4>
+                        <p class="product-desc">4K Ultra HD görüntü ilə yüksək keyfiyyətli TV Boxlar.</p>
+                        <div class="product-features">
+                            <span><i class="fas fa-check"></i> 4K Ultra HD</span>
+                            <span><i class="fas fa-check"></i> HDR10+</span>
+                            <span><i class="fas fa-check"></i> Dolby Audio</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" onclick="window.location.href='products/tv-boxes/pro.html'" style="cursor: pointer;">
+                    <div class="product-image">
+                        <div class="product-placeholder">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="product-badge pro">Pro</div>
+                        <div class="product-overlay">
+                            <a href="products/tv-boxes/pro.html" class="btn btn-sm">Ətraflı</a>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h4 class="product-name">Pro & Premium TV Boxlar</h4>
+                        <p class="product-desc">Peşəkar performans üçün premium TV Boxlar. 8GB+ RAM.</p>
+                        <div class="product-features">
+                            <span><i class="fas fa-check"></i> 8GB+ RAM</span>
+                            <span><i class="fas fa-check"></i> 128GB+ Yaddaş</span>
+                            <span><i class="fas fa-check"></i> 4K 60fps</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TV Aksesuarları -->
+    <section class="product-category" id="tv-accessories">
         <div class="container">
             <div class="category-header">
                 <div class="category-icon">
                     <i class="fas fa-tv"></i>
                 </div>
                 <div class="category-info">
-                    <h3 class="category-title">TV Məhsulları</h3>
-                    <p class="category-description">TV qutuları, kronşteynlər və aksesuarlar</p>
+                    <h3 class="category-title">TV Aksesuarları</h3>
+                    <p class="category-description">Kronşteynlər, kabellər və digər aksesuarlar</p>
                 </div>
             </div>
             
             <div class="products-grid products-grid-4">
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-placeholder">
-                            <i class="fas fa-box"></i>
-                        </div>
-                        <div class="product-badge">Populyar</div>
-                        <div class="product-overlay">
-                            <button class="btn btn-sm">Ətraflı</button>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h4 class="product-name">TV Qutuları</h4>
-                        <p class="product-desc">Android TV qutuları. Minlərlə kanal və tətbiq.</p>
-                        <div class="product-features">
-                            <span><i class="fas fa-check"></i> 4K Dəstəyi</span>
-                            <span><i class="fas fa-check"></i> Android 13</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card">
+                <div class="product-card" onclick="window.location.href='products/tv-accessories/kronstein.html'" style="cursor: pointer;">
                     <div class="product-image">
                         <div class="product-placeholder">
                             <i class="fas fa-display"></i>
                         </div>
                         <div class="product-overlay">
-                            <button class="btn btn-sm">Ətraflı</button>
+                            <a href="products/tv-accessories/kronstein.html" class="btn btn-sm">Ətraflı</a>
                         </div>
                     </div>
                     <div class="product-content">
@@ -622,13 +732,13 @@
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" onclick="window.location.href='products/tv-accessories/kabeller.html'" style="cursor: pointer;">
                     <div class="product-image">
                         <div class="product-placeholder">
                             <i class="fas fa-plug"></i>
                         </div>
                         <div class="product-overlay">
-                            <button class="btn btn-sm">Ətraflı</button>
+                            <a href="products/tv-accessories/kabeller.html" class="btn btn-sm">Ətraflı</a>
                         </div>
                     </div>
                     <div class="product-content">
@@ -641,21 +751,42 @@
                     </div>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card" onclick="window.location.href='products/tv-accessories/krosna.html'" style="cursor: pointer;">
+                    <div class="product-image">
+                        <div class="product-placeholder">
+                            <i class="fas fa-satellite-dish"></i>
+                        </div>
+                        <div class="product-overlay">
+                            <a href="products/tv-accessories/krosna.html" class="btn btn-sm">Ətraflı</a>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h4 class="product-name">Krosna Aparatları</h4>
+                        <p class="product-desc">Krosna aparatları peyklərdən gələn siqnalları qəbul və dekod edən , televizor üçün baxıla bilən kanallara çevirən cihazdır.</p>
+                        <div class="product-features">
+                            <span><i class="fas fa-check"></i> Mini Receivers</span>
+                            <span><i class="fas fa-check"></i> Receivers</span>
+                            <span><i class="fas fa-check"></i> HD/4K Dəstəyi</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" onclick="window.location.href='products/tv-accessories/pultlar.html'" style="cursor: pointer;">
                     <div class="product-image">
                         <div class="product-placeholder">
                             <i class="fas fa-keyboard"></i>
                         </div>
                         <div class="product-overlay">
-                            <button class="btn btn-sm">Ətraflı</button>
+                            <a href="products/tv-accessories/pultlar.html" class="btn btn-sm">Ətraflı</a>
                         </div>
                     </div>
                     <div class="product-content">
                         <h4 class="product-name">Pultlar & Aksesuarlar</h4>
-                        <p class="product-desc">Simsiz klaviaturalar, pultlar və digər aksesuarlar.</p>
+                        <p class="product-desc">Simsiz klaviaturalar, TV pultları və digər Bluetooth aksesuarlar. Universal uyğunluq və rahat istifadə.</p>
                         <div class="product-features">
-                            <span><i class="fas fa-check"></i> Universal</span>
+                            <span><i class="fas fa-check"></i> Universal Pult</span>
                             <span><i class="fas fa-check"></i> Bluetooth</span>
+                            <span><i class="fas fa-check"></i> Simsiz Klaviatura</span>
                         </div>
                     </div>
                 </div>
@@ -695,8 +826,8 @@
                     <div class="why-icon">
                         <i class="fas fa-store-alt"></i>
                     </div>
-                    <h4 class="why-title">Fiziki Mağaza + Onlayn</h4>
-                    <p class="why-desc">Həm fiziki mağazamızda, həm də onlayn platformamızda xidmətinizdəyik.</p>
+                    <h4 class="why-title"> Mağaza + Onlayn</h4>
+                    <p class="why-desc">Həm  mağazamızda, həm də onlayn platformamızda xidmətinizdəyik.</p>
                 </div>
                 
                 <div class="why-card">
@@ -716,9 +847,9 @@
             <div class="store-grid">
                 <div class="store-content">
                     <span class="section-tag">Əlaqə</span>
-                    <h2 class="section-title">Bizə <span class="gold">Gəlin</span></h2>
+                    <h2 class="section-title">Bizimlə <span class="gold">Əlaqə</span></h2>
                     <p class="store-text">
-                        Fiziki mağazamızda məhsullarımızı yaxından görə və sınaya bilərsiniz. 
+                         Mağazamızda məhsullarımızı yaxından görə və sınaya bilərsiniz. 
                         Peşəkar məsləhət üçün bizimlə əlaqə saxlayın.
                     </p>
                     
@@ -770,20 +901,23 @@
                    
                     
                     <div class="social-links">
-                        <a href="#" class="social-link whatsapp" aria-label="WhatsApp">
+                        <a href="https://wa.me/9945521055526" class="social-link whatsapp" aria-label="WhatsApp">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="#" class="social-link instagram" aria-label="Instagram">
+                        <a href="https://www.instagram.com/star_elektronics/" class="social-link instagram" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="social-link facebook" aria-label="Facebook">
+                        <!-- <a href="https://www.tiktok.com/@starelektronics" class="social-link facebook" aria-label="Facebook">
                             <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link tiktok" aria-label="TikTok">
+                        </a> -->
+                        <a href="https://www.tiktok.com/@starelektronics" class="social-link tiktok" aria-label="TikTok">
                             <i class="fab fa-tiktok"></i>
                         </a>
-                        <a href="#" class="social-link youtube" aria-label="YouTube">
+                        <!-- <a href="https://www.tiktok.com/@starelektronics" class="social-link youtube" aria-label="YouTube">
                             <i class="fab fa-youtube"></i>
+                        </a> -->
+                        <a href="https://tap.az/shops/star_electronika" class="social-link tapaz" aria-label="tap.az" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-store"></i>
                         </a>
                     </div>
                     
@@ -791,7 +925,7 @@
                         <h4 class="map-title"><i class="fas fa-map-marker-alt"></i> Xəritədə Yerləşmə</h4>
                         <div class="map-wrapper">
                             <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.7838369143074!2d49.7719037!3d40.33201249999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307feda57a3c7d%3A0xb787b99daa4cc3a0!2sStar%20Electronics!5e1!3m2!1str!2saz!4v1768034559945!5m2!1str!2saz" 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.7838369143074!2d49.7719037!3d40.33201249999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f8!3m3!1m2!1s0x40307feda57a3c7d%3A0xb787b99daa4cc3a0!2sStar%20Electronics!5e1!3m2!1str!2saz!4v1768034559945!5m2!1str!2saz" 
                                 width="100%" 
                                 height="250" 
                                 style="border:0;" 
@@ -811,33 +945,49 @@
                         <h3 class="form-title">Qiymət Təklifi Alın</h3>
                         <p class="form-subtitle">Formu doldurun, tezliklə sizinlə əlaqə saxlayaq</p>
                         
-                        <form class="contact-form" id="contact-form">
+                        <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                            <!-- Formspree hidden fields -->
+                            <input type="hidden" name="_subject" value="Yeni Müraciət - Star Electronics">
+                            <input type="hidden" name="_language" value="az">
+                            <input type="hidden" name="_next" value="https://starelectronics.az/#contact">
+                            <input type="hidden" name="_format" value="plain">
+                            
                             <div class="form-group">
-                                <input type="text" id="name" name="name" placeholder=" " required>
-                                <label for="name">Adınız</label>
+                                <input type="text" id="name" name="name" placeholder=" " required minlength="2" maxlength="50" pattern="[A-Za-zƏəĞğİiÖöŞşÜüÇç\s]+" title="Yalnız hərflər və boşluq">
+                                <label for="name">Adınız *</label>
+                                <span class="form-error" id="name-error"></span>
                             </div>
                             
                             <div class="form-group">
-                                <input type="tel" id="phone" name="phone" placeholder=" " required>
-                                <label for="phone">Telefon</label>
+                                <input type="tel" id="phone" name="phone" placeholder=" " required pattern="[\d\s\+\-\(\)]+" title="Telefon nömrəsi formatı: +994 XX XXX XX XX">
+                                <label for="phone">Telefon *</label>
+                                <span class="form-error" id="phone-error"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder=" " pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Düzgün email ünvanı daxil edin">
+                                <label for="email">Email (İstəyə bağlı)</label>
+                                <span class="form-error" id="email-error"></span>
                             </div>
                             
                             <div class="form-group">
                                 <select id="product-type" name="product-type" required>
-                                    <option value="" disabled selected>Məhsul Növü Seçin</option>
+                                    <option value="" disabled selected>Məhsul Növü Seçin *</option>
                                     <option value="cameras">Təhlükəsizlik Kameraları</option>
                                     <option value="damafonlar">Damafonlar</option>
                                     <option value="projectors">Proyektorlar</option>
                                     <option value="tv-box">TV Boxlar</option>
-                                    <option value="brackets">TV Kronşteynləri</option>
-                                    <option value="accessories">Aksesuarlar</option>
+                                    <option value="tv-accessories">TV Aksesuarları</option>
+                                    <option value="krosna">Krosna Aparatları</option>
                                     <option value="other">Digər</option>
                                 </select>
+                                <span class="form-error" id="product-type-error"></span>
                             </div>
                             
                             <div class="form-group">
-                                <textarea id="message" name="message" rows="4" placeholder=" "></textarea>
+                                <textarea id="message" name="message" rows="4" placeholder=" " maxlength="500"></textarea>
                                 <label for="message">Mesajınız (İstəyə bağlı)</label>
+                                <span class="form-char-count"><span id="message-count">0</span>/500</span>
                             </div>
                             
                             <button type="submit" class="btn btn-primary btn-block">
@@ -867,32 +1017,50 @@
                             Keyfiyyət və etibarlılıqla xidmətinizdəyik.
                         </p>
                         <div class="footer-social">
-                            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                        </div>
+                    
+                                <a href="https://wa.me/9945521055526" class="social-link whatsapp" aria-label="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="https://www.instagram.com/star_elektronics/" class="social-link instagram" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <!-- <a href="https://www.tiktok.com/@starelektronics" class="social-link facebook" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a> -->
+                                <a href="https://www.tiktok.com/@starelektronics" class="social-link tiktok" aria-label="TikTok">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <!-- <a href="https://www.tiktok.com/@starelektronics" class="social-link youtube" aria-label="YouTube">
+                                    <i class="fab fa-youtube"></i>
+                                </a> -->
+                                <a href="https://tap.az/shops/star_electronika" class="social-link tapaz" aria-label="tap.az" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-store"></i>
+                                </a>
+                            </div>
+                      
                     </div>
                     
                     <div class="footer-links">
                         <h4>Sürətli Keçidlər</h4>
                         <ul>
                             <li><a href="#home">Ana Səhifə</a></li>
-                            <li><a href="#products">Məhsullar</a></li>
-                            <li><a href="#cameras">Kameralar</a></li>
-                            <li><a href="#damafonlar">Haqqımızda</a></li>
-                            <li><a href="#about">"Əlaqə"</a></li>
+                            <!-- <li><a href="products/cameras/index.html">Kameralar</a></li> -->
+                            <!-- <li><a href="products/damafonlar/index.html">Damafonlar</a></li> -->
+                            <!-- <li><a href="products/projectors/index.html">Proyektorlar</a></li> -->
+                            <!-- <li><a href="products/tv-boxes/index.html">TV Boxlar</a></li> -->
+                            <li><a href="#about">Haqqımızda</a></li>
+                            <li><a href="#contact">Əlaqə</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-links">
                         <h4>Məhsullar</h4>
                         <ul>
-                            <li><a href="#cameras">Kameralar</a></li>
-                            <li><a href="#cameras">TV Boxlar</a></li>
-                            <li><a href="#projectors">Proyektorlar</a></li>
-                            <li><a href="#damafonlar">Video Damafonlar</a></li>
-                            <li><a href="#tv-accessories">TV Aksesuarları</a></li>
+                            <li><a href="products/cameras/index.html">Kameralar</a></li>
+                            <li><a href="products/tv-accessories/tv-box.html">TV Boxlar</a></li>
+                            <li><a href="products/projectors/index.html">Proyektorlar</a></li>
+                            <li><a href="products/damafonlar/video.html">Damafonlar</a></li>
+                            <li><a href="products/tv-accessories/index.html">TV Aksesuarları</a></li>
                         </ul>
                     </div>
                     
@@ -905,7 +1073,7 @@
                             </li>
                             <li>
                                 <i class="fas fa-phone"></i>
-                                <span>+994 555 210 55 26</span>
+                                <span>+994 55 210 55 26</span>
                             </li>
                             <li>
                                 <i class="fas fa-envelope"></i>
@@ -927,7 +1095,7 @@
                     <p>&copy; 2026 Star Electronics. Bütün hüquqlar qorunur.</p>
                     <div class="footer-badges">
                         <span><i class="fas fa-lock"></i> Təhlükəsiz Alış-veriş</span>
-                        <span><i class="fas fa-shield-check"></i> Orijinal Məhsul</span>
+                        <span><i class="fas fa-shield-halved"></i> Orijinal Məhsul</span>
                     </div>
                 </div>
             </div>

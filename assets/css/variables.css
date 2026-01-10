@@ -1,0 +1,47 @@
+/* ========================================
+   CSS Variables - Theme Configuration
+   ======================================== */
+
+:root {
+    /* Colors */
+    --black: #0a0a0a;
+    --black-light: #121212;
+    --black-medium: #1a1a1a;
+    --black-soft: #242424;
+    --gold: #d4af37;
+    --gold-light: #f4d47c;
+    --gold-dark: #b8962e;
+    --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f4d47c 50%, #d4af37 100%);
+    --white: #ffffff;
+    --white-soft: #f5f5f5;
+    --gray: #888888;
+    --gray-light: #cccccc;
+    --gray-dark: #444444;
+    
+    /* Fonts */
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    
+    /* Spacing */
+    --section-padding: 100px;
+    --container-padding: 24px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+    --shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.3);
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+}
+

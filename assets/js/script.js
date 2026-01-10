@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initBackToTop();
     initContactForm();
     initActiveNavLink();
+    initSearchFunctionality();
+    initDropdownMenus();
 });
 
 /**
@@ -57,9 +59,11 @@ function initMobileMenu() {
     // Close menu when clicking a link
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            toggle.classList.remove('active');
-            menu.classList.remove('active');
-            document.body.style.overflow = '';
+            if (!link.classList.contains('dropdown-toggle')) {
+                toggle.classList.remove('active');
+                menu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         });
     });
     
@@ -69,6 +73,65 @@ function initMobileMenu() {
             toggle.classList.remove('active');
             menu.classList.remove('active');
             document.body.style.overflow = '';
+        }
+    });
+    
+    // Initialize dropdown menus
+    initDropdownMenu();
+}
+
+/**
+ * Dropdown menu functionality
+ */
+function initDropdownMenu() {
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    
+    dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        const menu = dropdown.querySelector('.dropdown-menu');
+        
+        if (!toggle || !menu) return;
+        
+        // Toggle dropdown on click
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Close other dropdowns
+            dropdowns.forEach(other => {
+                if (other !== dropdown) {
+                    other.classList.remove('active');
+                }
+            });
+            
+            // Toggle current dropdown
+            dropdown.classList.toggle('active');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+        
+        // Close dropdown when clicking a menu item
+        const menuItems = menu.querySelectorAll('a');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                dropdown.classList.remove('active');
+            });
+        });
+        
+        // Hover support for desktop
+        if (window.innerWidth > 768) {
+            dropdown.addEventListener('mouseenter', function() {
+                dropdown.classList.add('active');
+            });
+            
+            dropdown.addEventListener('mouseleave', function() {
+                dropdown.classList.remove('active');
+            });
         }
     });
 }
@@ -199,39 +262,232 @@ function initBackToTop() {
 }
 
 /**
- * Contact form handling
+ * Contact form handling with Formspree integration
  */
 function initContactForm() {
     const form = document.getElementById('contact-form');
     if (!form) return;
     
+    // Character counter for message textarea
+    const messageField = form.querySelector('#message');
+    const messageCount = document.getElementById('message-count');
+    if (messageField && messageCount) {
+        messageField.addEventListener('input', function() {
+            messageCount.textContent = this.value.length;
+        });
+    }
+    
+    // Real-time validation
+    const nameField = form.querySelector('#name');
+    const phoneField = form.querySelector('#phone');
+    const emailField = form.querySelector('#email');
+    const productTypeField = form.querySelector('#product-type');
+    
+    // Name validation
+    if (nameField) {
+        nameField.addEventListener('blur', function() {
+            validateField(this, 'name-error', {
+                required: true,
+                minLength: 2,
+                maxLength: 50,
+                pattern: /^[A-Za-zƏəĞğİiÖöŞşÜüÇç\s]+$/
+            }, 'Ad minimum 2, maksimum 50 simvol olmalıdır və yalnız hərflər ehtiva edə bilər.');
+        });
+    }
+    
+    // Phone validation
+    if (phoneField) {
+        phoneField.addEventListener('blur', function() {
+            validateField(this, 'phone-error', {
+                required: true,
+                pattern: /^[\d\s\+\-\(\)]{9,20}$/
+            }, 'Düzgün telefon nömrəsi daxil edin (minimum 9 simvol).');
+        });
+    }
+    
+    // Email validation (optional)
+    if (emailField) {
+        emailField.addEventListener('blur', function() {
+            if (this.value) {
+                validateField(this, 'email-error', {
+                    required: false,
+                    pattern: /^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/i
+                }, 'Düzgün email ünvanı daxil edin.');
+            } else {
+                clearFieldError('email-error');
+            }
+        });
+    }
+    
+    // Product type validation
+    if (productTypeField) {
+        productTypeField.addEventListener('change', function() {
+            validateField(this, 'product-type-error', {
+                required: true
+            }, 'Zəhmət olmasa məhsul növü seçin.');
+        });
+    }
+    
+    // Form submission
     form.addEventListener('submit', function(e) {
         e.preventDefault();
+        
+        // Clear previous errors
+        clearAllErrors();
         
         // Get form data
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
         
-        // Simple validation
-        if (!data.name || !data.phone) {
-            showNotification('Zəhmət olmasa bütün xanaları doldurun.', 'error');
+        // Validate all fields
+        let isValid = true;
+        
+        // Validate name
+        if (!validateField(nameField, 'name-error', {
+            required: true,
+            minLength: 2,
+            maxLength: 50,
+            pattern: /^[A-Za-zƏəĞğİiÖöŞşÜüÇç\s]+$/
+        }, 'Ad minimum 2, maksimum 50 simvol olmalıdır və yalnız hərflər ehtiva edə bilər.')) {
+            isValid = false;
+        }
+        
+        // Validate phone
+        if (!validateField(phoneField, 'phone-error', {
+            required: true,
+            pattern: /^[\d\s\+\-\(\)]{9,20}$/
+        }, 'Düzgün telefon nömrəsi daxil edin (minimum 9 simvol).')) {
+            isValid = false;
+        }
+        
+        // Validate email (optional)
+        if (emailField && emailField.value) {
+            if (!validateField(emailField, 'email-error', {
+                required: false,
+                pattern: /^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/i
+            }, 'Düzgün email ünvanı daxil edin.')) {
+                isValid = false;
+            }
+        }
+        
+        // Validate product type
+        if (!validateField(productTypeField, 'product-type-error', {
+            required: true
+        }, 'Zəhmət olmasa məhsul növü seçin.')) {
+            isValid = false;
+        }
+        
+        if (!isValid) {
+            showNotification('Zəhmət olmasa formu düzgün doldurun.', 'error');
+            // Scroll to first error
+            const firstError = form.querySelector('.form-error:not(:empty)');
+            if (firstError) {
+                firstError.closest('.form-group').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
             return;
         }
         
-        // Simulate form submission
+        // Submit to Formspree
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
         
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Göndərilir...</span>';
         submitBtn.disabled = true;
         
-        // Simulate API call
-        setTimeout(() => {
-            showNotification('Müraciətiniz qəbul edildi! Tezliklə sizinlə əlaqə saxlayacağıq.', 'success');
-            form.reset();
+        // Submit form data to Formspree
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                showNotification('Müraciətiniz uğurla göndərildi! Tezliklə sizinlə əlaqə saxlayacağıq.', 'success');
+                form.reset();
+                if (messageCount) messageCount.textContent = '0';
+                // Scroll to top of form
+                form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                return response.json().then(data => {
+                    throw new Error(data.error || 'Form göndərilmədi. Zəhmət olmasa yenidən cəhd edin.');
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Form submission error:', error);
+            showNotification(error.message || 'Xəta baş verdi. Zəhmət olmasa yenidən cəhd edin və ya bizimlə birbaşa əlaqə saxlayın.', 'error');
+        })
+        .finally(() => {
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
-        }, 1500);
+        });
+    });
+}
+
+/**
+ * Validate form field
+ */
+function validateField(field, errorId, rules, errorMessage) {
+    if (!field) return false;
+    
+    const errorElement = document.getElementById(errorId);
+    let isValid = true;
+    
+    // Required validation
+    if (rules.required && !field.value.trim()) {
+        isValid = false;
+    }
+    
+    // Min length validation
+    if (isValid && rules.minLength && field.value.trim().length < rules.minLength) {
+        isValid = false;
+    }
+    
+    // Max length validation
+    if (isValid && rules.maxLength && field.value.trim().length > rules.maxLength) {
+        isValid = false;
+    }
+    
+    // Pattern validation
+    if (isValid && rules.pattern && field.value.trim() && !rules.pattern.test(field.value.trim())) {
+        isValid = false;
+    }
+    
+    // Show/hide error
+    if (!isValid && errorElement) {
+        errorElement.textContent = errorMessage;
+        field.classList.add('error');
+    } else if (errorElement) {
+        errorElement.textContent = '';
+        field.classList.remove('error');
+    }
+    
+    return isValid;
+}
+
+/**
+ * Clear field error
+ */
+function clearFieldError(errorId) {
+    const errorElement = document.getElementById(errorId);
+    if (errorElement) {
+        errorElement.textContent = '';
+        const field = errorElement.closest('.form-group')?.querySelector('input, select, textarea');
+        if (field) field.classList.remove('error');
+    }
+}
+
+/**
+ * Clear all form errors
+ */
+function clearAllErrors() {
+    const errorElements = document.querySelectorAll('.form-error');
+    errorElements.forEach(error => {
+        error.textContent = '';
+        const field = error.closest('.form-group')?.querySelector('input, select, textarea');
+        if (field) field.classList.remove('error');
     });
 }
 
@@ -448,6 +704,139 @@ function initTypingEffect() {
     }
     
     setTimeout(type, 1000);
+}
+
+/**
+ * Search Functionality
+ */
+function initSearchFunctionality() {
+    const searchToggle = document.getElementById('search-toggle');
+    const searchBox = document.getElementById('search-box');
+    const searchInput = document.getElementById('search-input');
+    const searchClose = document.getElementById('search-close');
+    const searchResults = document.getElementById('search-results');
+    
+    if (!searchToggle || !searchBox || !searchInput) return;
+    
+    // Product data for search (all products from homepage)
+    const allProducts = [
+        { name: 'WiFi Kameralar', description: 'Simsiz bağlantı ilə asanlıqla quraşdırın. Telefondan canlı izləyin.', link: 'products/cameras/index.html', category: 'Kameralar' },
+        { name: '360° Kameralar', description: 'Tam panoramik görüntü. Heç bir bucağı qaçırmayın.', link: 'products/cameras/360.html', category: 'Kameralar' },
+        { name: 'DVR Sistemləri', description: 'Peşəkar video qeyd sistemləri. Çox kameralı həllər.', link: 'products/cameras/dvr.html', category: 'Kameralar' },
+        { name: 'Video Damafonlar', description: 'Qapınızdakı hər kəsi görün. Telefondan cavab verin.', link: 'products/damafonlar/video.html', category: 'Damafonlar' },
+        { name: 'Mənzil Damafonları', description: 'Çox mənzilli binalar üçün peşəkar damafon sistemləri.', link: 'products/damafonlar/menzil.html', category: 'Damafonlar' },
+        { name: 'Ağıllı Damafonlar', description: 'Smart ev sisteminizə inteqrasiya. Səslə idarə edin.', link: 'products/damafonlar/agilli.html', category: 'Damafonlar' },
+        { name: 'Ev Kinoteatrı Proyektorları', description: 'Evinizi kinoteatra çevirin. Yüksək keyfiyyətli görüntü.', link: 'products/projectors/ev.html', category: 'Proyektorlar' },
+        { name: 'Ofis Proyektorları', description: 'Təqdimatlar və iclaslar üçün peşəkar proyektorlar.', link: 'products/projectors/ofis.html', category: 'Proyektorlar' },
+        { name: 'Mini Proyektorlar', description: 'Kompakt və portativ. Hər yerə aparın.', link: 'products/projectors/mini.html', category: 'Proyektorlar' },
+        { name: 'Android TV Boxlar', description: 'Android OS ilə smart funksiyalar. Minlərlə kanal və tətbiq.', link: 'products/tv-boxes/android.html', category: 'TV Boxlar' },
+        { name: '4K Ultra HD TV Boxlar', description: '4K Ultra HD görüntü ilə yüksək keyfiyyətli TV Boxlar.', link: 'products/tv-boxes/4k.html', category: 'TV Boxlar' },
+        { name: 'Pro & Premium TV Boxlar', description: 'Peşəkar performans üçün premium TV Boxlar. 8GB+ RAM.', link: 'products/tv-boxes/pro.html', category: 'TV Boxlar' },
+        { name: 'TV Kronşteynləri', description: 'Divar üçün möhkəm və etibarlı tutucular.', link: 'products/tv-accessories/kronstein.html', category: 'TV Aksesuarları' },
+        { name: 'HDMI Kabellər', description: 'Yüksək sürətli HDMI 2.1 kabellər. 8K dəstəyi.', link: 'products/tv-accessories/kabeller.html', category: 'TV Aksesuarları' },
+        { name: 'Krosna Aparatları', description: 'Peyklərdən gələn siqnalları qəbul və dekod edən cihazlar.', link: 'products/tv-accessories/krosna.html', category: 'TV Aksesuarları' },
+        { name: 'Pultlar & Aksesuarlar', description: 'Simsiz klaviaturalar, TV pultları və digər Bluetooth aksesuarlar.', link: 'products/tv-accessories/pultlar.html', category: 'TV Aksesuarları' }
+    ];
+    
+    // Toggle search box
+    if (searchToggle) {
+        searchToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            searchBox.classList.toggle('active');
+            if (searchBox.classList.contains('active')) {
+                searchInput.focus();
+            }
+        });
+    }
+    
+    // Close search box
+    if (searchClose) {
+        searchClose.addEventListener('click', function(e) {
+            e.stopPropagation();
+            searchBox.classList.remove('active');
+            searchInput.value = '';
+            searchResults.classList.remove('active');
+            searchResults.innerHTML = '';
+        });
+    }
+    
+    // Close search box when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!searchBox.contains(e.target) && !searchToggle.contains(e.target)) {
+            searchBox.classList.remove('active');
+            searchInput.value = '';
+            searchResults.classList.remove('active');
+            searchResults.innerHTML = '';
+        }
+    });
+    
+    // Close search box on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && searchBox.classList.contains('active')) {
+            searchBox.classList.remove('active');
+            searchInput.value = '';
+            searchResults.classList.remove('active');
+            searchResults.innerHTML = '';
+        }
+    });
+    
+    // Search functionality
+    if (searchInput) {
+        let searchTimeout;
+        searchInput.addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            const query = this.value.trim().toLowerCase();
+            
+            searchTimeout = setTimeout(() => {
+                if (query.length < 2) {
+                    searchResults.classList.remove('active');
+                    searchResults.innerHTML = '';
+                    return;
+                }
+                
+                // Search products
+                const filteredProducts = allProducts.filter(product => {
+                    return product.name.toLowerCase().includes(query) ||
+                           product.description.toLowerCase().includes(query) ||
+                           product.category.toLowerCase().includes(query);
+                });
+                
+                // Display results
+                if (filteredProducts.length > 0) {
+                    searchResults.innerHTML = filteredProducts.map(product => `
+                        <a href="${product.link}" class="search-results-item">
+                            <h4>${highlightMatch(product.name, query)}</h4>
+                            <p>${product.category} - ${product.description}</p>
+                        </a>
+                    `).join('');
+                    searchResults.classList.add('active');
+                } else {
+                    searchResults.innerHTML = '<div class="search-results-empty">Məhsul tapılmadı</div>';
+                    searchResults.classList.add('active');
+                }
+            }, 300);
+        });
+        
+        // Prevent form submission on Enter
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const firstResult = searchResults.querySelector('.search-results-item');
+                if (firstResult) {
+                    firstResult.click();
+                }
+            }
+        });
+    }
+}
+
+/**
+ * Highlight search matches in text
+ */
+function highlightMatch(text, query) {
+    if (!query) return text;
+    const regex = new RegExp(`(${query})`, 'gi');
+    return text.replace(regex, '<mark>$1</mark>');
 }
 
 // Console branding
