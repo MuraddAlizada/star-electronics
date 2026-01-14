@@ -46,23 +46,35 @@ function initHeader() {
 function initMobileMenu() {
     const toggle = document.getElementById('mobile-toggle');
     const menu = document.getElementById('nav-menu');
+    const closeBtn = document.getElementById('mobile-menu-close');
     const navLinks = document.querySelectorAll('.nav-link');
     
     if (!toggle || !menu) return;
     
+    // Function to close menu
+    function closeMenu() {
+        toggle.classList.remove('active');
+        menu.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // Open/close menu with toggle button
     toggle.addEventListener('click', function() {
         toggle.classList.toggle('active');
         menu.classList.toggle('active');
         document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
     });
     
+    // Close menu with close button
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeMenu);
+    }
+    
     // Close menu when clicking a link
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             if (!link.classList.contains('dropdown-toggle')) {
-                toggle.classList.remove('active');
-                menu.classList.remove('active');
-                document.body.style.overflow = '';
+                closeMenu();
             }
         });
     });
@@ -70,9 +82,7 @@ function initMobileMenu() {
     // Close menu when clicking outside
     document.addEventListener('click', function(e) {
         if (!menu.contains(e.target) && !toggle.contains(e.target) && menu.classList.contains('active')) {
-            toggle.classList.remove('active');
-            menu.classList.remove('active');
-            document.body.style.overflow = '';
+            closeMenu();
         }
     });
     
@@ -92,8 +102,20 @@ function initDropdownMenu() {
         
         if (!toggle || !menu) return;
         
-        // Toggle dropdown on click
+        // Check if mobile (window width <= 992px)
+        function isMobile() {
+            return window.innerWidth <= 992;
+        }
+        
+        // Toggle dropdown on click (only on desktop)
         toggle.addEventListener('click', function(e) {
+            // Don't toggle on mobile - menu should always be visible
+            if (isMobile()) {
+                e.preventDefault();
+                e.stopPropagation();
+                return;
+            }
+            
             e.preventDefault();
             e.stopPropagation();
             
@@ -721,8 +743,8 @@ function initSearchFunctionality() {
     // Product data for search (all products from homepage)
     const allProducts = [
         { name: 'WiFi Kameralar', description: 'Simsiz bağlantı ilə asanlıqla quraşdırın. Telefondan canlı izləyin.', link: 'products/cameras/index.html', category: 'Kameralar' },
-        { name: '360° Kameralar', description: 'Tam panoramik görüntü. Heç bir bucağı qaçırmayın.', link: 'products/cameras/360.html', category: 'Kameralar' },
-        { name: 'DVR Sistemləri', description: 'Peşəkar video qeyd sistemləri. Çox kameralı həllər.', link: 'products/cameras/dvr.html', category: 'Kameralar' },
+        { name: '4G Sim Kartlı Kameralar', description: 'WiFi bağlantıya ehtiyac yoxdur. Sim kartla mobil şəbəkə üzərindən işləyir.', link: 'products/cameras/4g.html', category: 'Kameralar' },
+        { name: 'Solar Panelli Kameralar', description: 'Günəş enerjisi ilə işləyən müstəqil kameralar. Kabelsiz quraşdırma.', link: 'products/cameras/panel.html', category: 'Kameralar' },
         { name: 'Video Damafonlar', description: 'Qapınızdakı hər kəsi görün. Telefondan cavab verin.', link: 'products/damafonlar/video.html', category: 'Damafonlar' },
         { name: 'Mənzil Damafonları', description: 'Çox mənzilli binalar üçün peşəkar damafon sistemləri.', link: 'products/damafonlar/menzil.html', category: 'Damafonlar' },
         { name: 'Ağıllı Damafonlar', description: 'Smart ev sisteminizə inteqrasiya. Səslə idarə edin.', link: 'products/damafonlar/agilli.html', category: 'Damafonlar' },

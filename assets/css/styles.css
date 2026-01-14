@@ -42,8 +42,8 @@
     --gray-dark: #444444;
     
     /* Fonts */
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     
     /* Spacing */
     --section-padding: 100px;
@@ -118,7 +118,7 @@ body {
 /* Container */
 .container {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1250px;
     margin: 0 auto;
     padding: 0 var(--container-padding);
 }
@@ -255,30 +255,46 @@ a:focus-visible {
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 20px 0;
+    padding: 10px 0;
     transition: all var(--transition-base);
+    background: linear-gradient(135deg, rgba(10,10,10,0.98) 0%, rgba(26,26,26,0.98) 100%);
+    border-bottom: 2px solid transparent;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
 }
 
 .header::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gold-gradient);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.header::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, rgba(10,10,10,0.95), rgba(10,10,10,0));
+    background: radial-gradient(ellipse at 20% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
     pointer-events: none;
+    opacity: 0.5;
 }
 
 .header.scrolled {
-    padding: 12px 0;
-    background: rgba(10, 10, 10, 0.98);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    padding: 16px 0;
+    background: rgba(10, 10, 10, 0.99);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 8px 40px rgba(212, 175, 55, 0.15);
 }
 
 .header.scrolled::before {
-    opacity: 0;
+    opacity: 1;
 }
 
 .nav {
@@ -296,15 +312,19 @@ a:focus-visible {
 }
 
 .logo img {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
-    transition: transform var(--transition-base);
+    transition: all var(--transition-base);
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    filter: brightness(1.1);
 }
 
 .logo:hover img {
-    transform: scale(1.05);
+    transform: scale(1.08) rotate(5deg);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
 }
 
 .logo-text {
@@ -323,15 +343,16 @@ a:focus-visible {
 }
 
 .nav-link {
-    padding: 10px 18px;
-    font-size: 13px;
-    font-weight: 500;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     color: var(--gray-light);
     border-radius: var(--radius-full);
     transition: all var(--transition-base);
     position: relative;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .nav-link:focus {
@@ -687,6 +708,11 @@ a:focus-visible {
     transition: all var(--transition-base);
 }
 
+/* Mobile Menu Close Button - Hidden on Desktop */
+.mobile-menu-close {
+    display: none;
+}
+
 /* ========================================
    HERO SECTION
    ======================================== */
@@ -746,24 +772,7 @@ a:focus-visible {
 }
 
 .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 20px;
-    background: rgba(212, 175, 55, 0.1);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    border-radius: var(--radius-full);
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--gold);
-    margin-bottom: 30px;
-    animation: fadeInUp 0.8s ease;
-}
-
-.hero-badge i {
-    font-size: 14px;
+    display: none;
 }
 
 .hero-title {
@@ -1977,12 +1986,13 @@ a:focus-visible {
         width: 300px;
         height: 100vh;
         flex-direction: column;
-        align-items: flex-start;
-        padding: 100px 40px 40px;
+        align-items: stretch;
+        padding: 80px 30px 40px;
         background: var(--black-light);
         border-left: 1px solid rgba(212, 175, 55, 0.2);
         transition: right var(--transition-base);
         z-index: 999;
+        overflow-y: auto;
     }
     
     .nav-menu.active {
@@ -1994,53 +2004,78 @@ a:focus-visible {
         padding: 14px 0;
         font-size: 16px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        text-align: left;
+        display: block;
     }
     
     .nav-link::after {
         display: none;
     }
     
-    .nav-dropdown {
-        width: 100%;
+    /* Mobil menüdə "Məhsullar" başlığını gizlədirik */
+    .nav-dropdown .dropdown-toggle {
+        display: none !important;
     }
     
-    .dropdown-toggle {
-        width: 100%;
-        justify-content: space-between;
-        padding: 14px 0;
-    }
-    
-    .dropdown-menu {
+    /* Mobil menüdə dropdown menu-nu normal nav link kimi göstəririk */
+    .nav-dropdown .dropdown-menu {
         position: static;
         transform: none;
         opacity: 1;
         visibility: visible;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        margin-top: 0;
+        max-height: none !important;
+        overflow: visible;
+        transition: none;
+        margin: 0;
+        padding: 0;
         border: none;
-        border-top: 1px solid rgba(212, 175, 55, 0.1);
         border-radius: 0;
         box-shadow: none;
-        background: var(--black-light);
+        background: transparent;
         left: 0;
         min-width: 100%;
-        padding: 0;
+        display: block !important;
     }
     
-    .dropdown-menu::before {
+    .nav-dropdown .dropdown-menu::before {
         display: none;
     }
     
-    .nav-dropdown.active .dropdown-menu {
-        max-height: 500px;
+    .nav-dropdown .dropdown-menu li {
+        display: block;
+        width: 100%;
+        list-style: none;
+        margin: 0;
     }
     
-    .dropdown-menu li a {
-        padding-left: 40px;
-        padding-top: 12px;
-        padding-bottom: 12px;
+    .nav-dropdown .dropdown-menu li a {
+        padding: 14px 0;
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--gray-light);
+        text-align: left;
+        border-left: none !important;
+    }
+    
+    .nav-dropdown .dropdown-menu li a:hover {
+        padding-left: 0 !important;
+        background: transparent !important;
+    }
+    
+    /* Mobil menüdə bütün ikonları gizlədirik */
+    .nav-dropdown .dropdown-menu li a i,
+    .nav-link i {
+        display: none !important;
+    }
+    
+    /* Mobil menüdə nav-dropdown-u normal list item kimi göstəririk */
+    .nav-dropdown {
+        display: block;
+        width: 100%;
     }
     
     .mobile-toggle {
@@ -2057,6 +2092,31 @@ a:focus-visible {
     
     .mobile-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(6px, -6px);
+    }
+    
+    /* Mobile Menu Close Button */
+    .mobile-menu-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        background: rgba(212, 175, 55, 0.1);
+        border: 1px solid var(--gold);
+        border-radius: 50%;
+        color: var(--gold);
+        cursor: pointer;
+        transition: all var(--transition-base);
+        font-size: 20px;
+    }
+    
+    .mobile-menu-close:hover {
+        background: var(--gold);
+        color: var(--black);
+        transform: rotate(90deg);
     }
     
     .nav-actions .btn {
@@ -2161,12 +2221,15 @@ a:focus-visible {
 }
 
 @media (max-width: 768px) {
+    .nav-dropdown:hover .dropdown-menu, .nav-dropdown.active .dropdown-menu{
+        transform: none !important;
+    }
     :root {
         --section-padding: 60px;
     }
     
     .hero {
-        padding: 120px 0 60px;
+        padding: 135px 0 60px;
     }
     
     .hero-stats {
